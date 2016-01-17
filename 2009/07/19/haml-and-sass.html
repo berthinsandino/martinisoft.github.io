@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Haml and Sass with Rails &#8211; Martini Software</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Haml and Sass with Rails &#8211; Martini Software">
+    <meta property="og:description" content="Getting back into the latest Rails and installing the latest version of the greatest HTML markup system ever was a li...">
+    <meta property="og:url" content="/2009/07/19/haml-and-sass.html">
+    <meta property="og:site_name" content="Martini Software">
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Martini Software Feed">
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Type -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic" rel='stylesheet' type='text/css' />
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel='stylesheet' type='text/css'>
+
+    <!-- For all browsers -->
+    <link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+    <!-- Load Modernizr -->
+    <script type="text/javascript" src="/assets/vendor/modernizr-2.6.2-min.js"></script>
+
+    <!-- Icons -->
+    <!-- 16x16 -->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">Martini Software</a></h1>
+        </hgroup>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/" title="Martini Software">Home</a>
+            </li>
+
+            
+                <li><a href="/about" >About</a></li>
+            
+                <li><a href="https://github.com/martinisoft" target="_blank">Github</a></li>
+            
+                <li><a href="https://twitter.com/martinisoft" target="_blank">Twitter</a></li>
+            
+                <li><a href="http://dribbble.com/martinisoft" target="_blank">Dribbble</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+<section class="article">
+  <article class="wrap post">
+    <header class="post-header">
+      <hgroup>
+        <h1>Haml and Sass with Rails</h1>
+        <p class="date">Jul 19, 2009</p>
+        
+        <p class="intro"></p>
+      </hgroup>
+    </header>
+
+    <p>Getting back into the latest Rails and installing the latest version of the greatest HTML markup system ever was a little tougher than expected.  Turns out the new hotness with Rails since 2.1 is to config.gem everything, which makes sense.  This doesn&#39;t work well for things like HAML, which expect to be plugins.  Luckily you can conform to the new trend without littering your vendor/plugins folder.</p>
+
+<h3>Installing HAML and Sass</h3>
+
+<p>You must first do a basic gem install of haml thusly:</p>
+
+<pre>
+    $ sudo gem install haml
+</pre>
+
+<p>Once completed you&#39;ll need to add the following to your environment.rb</p>
+
+<pre>
+    config.gem "haml"
+</pre>
+
+<p>Next comes the cool trick...</p>
+
+<h3>The Trick</h3>
+
+<p>As of Rails 2.0, the default load order for configuration is as follows:</p>
+
+<ol>
+<li>config/preinitializer.rb (if the file exists)</li>
+<li>config/environment.rb</li>
+<li>config/environments/* (defaults to your current environment)</li>
+<li>config/initializers/*.rb</li>
+</ol>
+
+<p>You have to place the following in a new file inside the config/initializers/ folder (I called mine haml<em>and</em>sass.rb) in order to get HAML to properly load, which allows you to configure its options as well.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">    <span class="c1"># Init HAML</span>
+    <span class="no">Haml</span><span class="p">.</span><span class="nf">init_rails</span><span class="p">(</span><span class="nb">binding</span><span class="p">)</span></code></pre></figure>
+
+<p>Once you add that, SASS will work beautifully and allow you to configure it normally.</p>
+
+
+    <a class="share" href="https://twitter.com/intent/tweet?text=&quot;Haml and Sass with Rails&quot;%20/2009/07/19/haml-and-sass.html%20via%20&#64;" data-dnt="true">Share</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </article>
+
+</section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/09/02/the-future-of-chef-rvm.html" title="The future of chef-rvm">The future of chef-rvm </a></span>
+              <span class="date">Sep 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/05/02/burnout-my-struggle-with-imposter-syndrome.html" title="Burnout: My struggle with Imposter Syndrome">Burnout: My struggle with I... </a></span>
+              <span class="date">May 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/02/21/some-well-kept-chicago-developer-secrets.html" title="Some well-kept Chicago Developer Secrets">Some well-kept Chicago Deve... </a></span>
+              <span class="date">Feb 21, 2014</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <div class="author-card">
+          <img src="http://www.gravatar.com/avatar/700eacfd79780dfbd6453c971cadafb8?s=100" alt="Aaron Kalin">
+          <span>Aaron Kalin</span>
+        </div>
+        <ul>
+          <li><a class="mail" href="mailto:akalin@martinisoftware.com"><span class="foot-link"><i class="fa fa-envelope"></i>Contact Me</span></a></li>
+          <li><a class="twitter" href="https://twitter.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-twitter"></i>@martinisoft</span></a></li>
+          <li><a class="github" href="https://github.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-github"></i>Github</span></a></li>
+          <li><a class="dribbble" href="http://dribbble.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-dribbble"></i>Dribbble</span></a></li>
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2009-2016 Aaron Kalin - All Right Reserved. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</small>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/assets/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script type="text/javascript" src="/assets/vendor/retina-1.1.0.min.js"></script>
+  <script type="text/javascript" src="/assets/application.js"></script>
+
+  <script type="text/javascript">
+    var clicky_site_ids = clicky_site_ids || [];
+    clicky_site_ids.push(66418158);
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    })();
+  </script>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66418158ns.gif" /></p></noscript>
+
+  </body>
+</html>
+

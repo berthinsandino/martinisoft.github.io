@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>The future of chef-rvm &#8211; Martini Software</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="The future of chef-rvm &#8211; Martini Software">
+    <meta property="og:description" content="It was over a year ago that I asked Fletcher if I could help him with chef-rvm and he enthusiastically said yes. If y...">
+    <meta property="og:url" content="/2014/09/02/the-future-of-chef-rvm.html">
+    <meta property="og:site_name" content="Martini Software">
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Martini Software Feed">
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Type -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic" rel='stylesheet' type='text/css' />
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel='stylesheet' type='text/css'>
+
+    <!-- For all browsers -->
+    <link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+    <!-- Load Modernizr -->
+    <script type="text/javascript" src="/assets/vendor/modernizr-2.6.2-min.js"></script>
+
+    <!-- Icons -->
+    <!-- 16x16 -->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">Martini Software</a></h1>
+        </hgroup>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/" title="Martini Software">Home</a>
+            </li>
+
+            
+                <li><a href="/about" >About</a></li>
+            
+                <li><a href="https://github.com/martinisoft" target="_blank">Github</a></li>
+            
+                <li><a href="https://twitter.com/martinisoft" target="_blank">Twitter</a></li>
+            
+                <li><a href="http://dribbble.com/martinisoft" target="_blank">Dribbble</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+<section class="article">
+  <article class="wrap post">
+    <header class="post-header">
+      <hgroup>
+        <h1>The future of chef-rvm</h1>
+        <p class="date">Sep 02, 2014</p>
+        
+        <p class="total-time">Reading Time: 5 to 7 minutes</p>
+        
+        <p class="intro"></p>
+      </hgroup>
+    </header>
+
+    <p>It was over a year ago that I asked <a href="https://github.com/fnichol">Fletcher</a> if I could help him with <a href="https://github.com/fnichol/chef-rvm">chef-rvm</a> and he enthusiastically said yes. If you have been following or recently glancing at the project, you&#39;ll notice it has been a little while since the last release. To put it short, both Fletcher and I have been extremely busy with other projects, work, and life in general. I personally had some <a href="/2014/05/02/burnout-my-struggle-with-imposter-syndrome.html">demons to battle</a> and disconnected from all of my projects at once to let me recuperate.</p>
+
+<p>My personal time off as mentioned before has helped me put things into perspective and let me rejoin projects at my own pace. If you&#39;ve ever thought about taking on open source in a maintainer role be sure to build in some break time. Open Source is literally <em>a second job</em> that answers to everyone&#39;s needs, but generally pays nothing while asking for everything and can sometimes <a href="https://sethvargo.com/leaving-chef/">invoke hatred</a> from your users. It is emotionally taxing in a similar way to being at a Customer Service desk where you are bombarded with pleas for help charged with a modicum of frustration. This isn&#39;t a personal cry for help, but your glimpse into my perspective of things. I enjoy helping others and lending a hand where I can. This is why I wanted a break and not a new career.</p>
+
+<h2>The road to 1.0</h2>
+
+<p>Fletcher and I have been in a few discussions about where to take chef-rvm because of the rapidly changing <a href="https://supermarket.getchef.com/">Chef community</a> and <a href="http://blog.vialstudios.com/the-environment-cookbook-pattern/">cookbook patterns</a>. In the sections below I will highlight the major changes and a little reasoning behind them.</p>
+
+<h3>Moving to an <a href="http://docs.getchef.com/lwrp.html">LWRP</a></h3>
+
+<p>One of the initial decisions was <a href="https://github.com/fnichol/chef-rvm/pull/235">a weekend experiment to re-write</a> the cookbook as an LWRP that is currently in a branch. So far this pattern is working out better than expected and will help us shed the need for an <a href="https://github.com/wayneeseguin/rvm-gem">rvm-gem</a> that is no longer maintained by the <a href="http://rvm.io/">rvm</a> team. We are pioneering a better way to execute with the rvm environment via Chef. The RVM maintainer, <a href="https://github.com/mpapis">Michael Papis</a> is helping us on this front to make sure we&#39;re doing things correctly by rvm for execution. This change will also help us prepare for the upcoming <a href="https://github.com/rvm/rvm">RVM 2.0</a> release by leveraging more of rvm command api.</p>
+
+<h3>Declaring bankruptcy on issues</h3>
+
+<p>If you have looked at the repository lately, issues have been piling up over time. Some of them dating back <a href="https://github.com/fnichol/chef-rvm/issues/68">over 2 years ago</a> and still labeled as &#39;in progress&#39;. Fletcher and I are both extremely sorry for the lack of response or follow-up from us on many of these issues. Again as mentioned before, we have been neglecting the project for some time now. In order to move forward with 1.0, we will be closing any issues older than 6 months. Each one will contain a message encouraging the issue creator to follow up with updated information and re-open the issue.</p>
+
+<h3>Adding a Code of Conduct &amp; Contribution Guide</h3>
+
+<p>To help foster equality and respect, we will be adopting a code of conduct along with a contribution guide. The Chef community has <a href="http://www.getchef.com/blog/2014/08/27/behaving-responsibly-in-the-chef-community/">begun to adopt a policy</a> and we will be adding something similar to the repository as a reminder. Remember there are humans at the other end of that github issue, email, or comment and I personally want this cookbook to be as friendly and inviting as the Ruby community itself. To put it bluntly, <a href="https://speakerdeck.com/sethvargo/dealing-with-the-demands-of-the-open-source-community">don&#39;t be an asshole</a>.</p>
+
+<h2>Adding more maintainers</h2>
+
+<p>The elephant in the room I wanted to address here is adding more maintainers to the chef-rvm project. There is <a href="https://github.com/fnichol/chef-rvm/issues/232">an open issue</a> for this and it will get addressed past the 1.0 release by Fletcher since it is his project. Fletcher and I will be at the <a href="http://www.getchef.com/summit/">Chef Community Summit</a> in Seattle. If you are attending, we encourage you to say hello to either one of us. We would love to arrange a little hack session while there if possible.</p>
+
+<h2>2.0 and beyond</h2>
+
+<p>What does the future hold beyond 1.0? Once 1.0 is stable and out there, chef-rvm will version along side the rvm project via <a href="http://semver.org/">semver</a>. The 1.x releases will be rvm 1.x compatible while the chef-rvm 2.x releases will target rvm2. There has been discussion between Fletcher and I about shedding the data bag based recipes into a separate wrapper cookbook to maintain the current 0.9 functionality and keep the LWRP cookbook small and focused. We&#39;re a little bit off from that decision and will probably open it as a github issue to discuss it with the community at large and go from there. As mentioned above, we&#39;ll be looking to add more people with commit access in the near future.</p>
+
+
+    <a class="share" href="https://twitter.com/intent/tweet?text=&quot;The future of chef-rvm&quot;%20/2014/09/02/the-future-of-chef-rvm.html%20via%20&#64;" data-dnt="true">Share</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </article>
+
+</section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/09/02/the-future-of-chef-rvm.html" title="The future of chef-rvm">The future of chef-rvm </a></span>
+              <span class="date">Sep 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/05/02/burnout-my-struggle-with-imposter-syndrome.html" title="Burnout: My struggle with Imposter Syndrome">Burnout: My struggle with I... </a></span>
+              <span class="date">May 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/02/21/some-well-kept-chicago-developer-secrets.html" title="Some well-kept Chicago Developer Secrets">Some well-kept Chicago Deve... </a></span>
+              <span class="date">Feb 21, 2014</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <div class="author-card">
+          <img src="http://www.gravatar.com/avatar/700eacfd79780dfbd6453c971cadafb8?s=100" alt="Aaron Kalin">
+          <span>Aaron Kalin</span>
+        </div>
+        <ul>
+          <li><a class="mail" href="mailto:akalin@martinisoftware.com"><span class="foot-link"><i class="fa fa-envelope"></i>Contact Me</span></a></li>
+          <li><a class="twitter" href="https://twitter.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-twitter"></i>@martinisoft</span></a></li>
+          <li><a class="github" href="https://github.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-github"></i>Github</span></a></li>
+          <li><a class="dribbble" href="http://dribbble.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-dribbble"></i>Dribbble</span></a></li>
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2009-2016 Aaron Kalin - All Right Reserved. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</small>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/assets/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script type="text/javascript" src="/assets/vendor/retina-1.1.0.min.js"></script>
+  <script type="text/javascript" src="/assets/application.js"></script>
+
+  <script type="text/javascript">
+    var clicky_site_ids = clicky_site_ids || [];
+    clicky_site_ids.push(66418158);
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    })();
+  </script>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66418158ns.gif" /></p></noscript>
+
+  </body>
+</html>
+

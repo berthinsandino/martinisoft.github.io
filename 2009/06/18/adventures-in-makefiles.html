@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Adventures in Makefiles &#8211; Martini Software</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Adventures in Makefiles &#8211; Martini Software">
+    <meta property="og:description" content="Writing Makefiles is painful.  Especially in multiple platforms.  Check out the source code to any C or C++ based app...">
+    <meta property="og:url" content="/2009/06/18/adventures-in-makefiles.html">
+    <meta property="og:site_name" content="Martini Software">
+
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Martini Software Feed">
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Type -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic" rel='stylesheet' type='text/css' />
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel='stylesheet' type='text/css'>
+
+    <!-- For all browsers -->
+    <link type="text/css" rel="stylesheet" href="/assets/application.css">
+
+    <!-- Load Modernizr -->
+    <script type="text/javascript" src="/assets/vendor/modernizr-2.6.2-min.js"></script>
+
+    <!-- Icons -->
+    <!-- 16x16 -->
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+
+
+<div id="bump">
+  <body class="">
+    <header class="site-header darken">
+      <div class="wrap">
+        <hgroup>
+          <h1><a href="/">Martini Software</a></h1>
+        </hgroup>
+        <nav role="navigation">
+          <ul>
+            <li>
+              <a href="/" title="Martini Software">Home</a>
+            </li>
+
+            
+                <li><a href="/about" >About</a></li>
+            
+                <li><a href="https://github.com/martinisoft" target="_blank">Github</a></li>
+            
+                <li><a href="https://twitter.com/martinisoft" target="_blank">Twitter</a></li>
+            
+                <li><a href="http://dribbble.com/martinisoft" target="_blank">Dribbble</a></li>
+            
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+<section class="article">
+  <article class="wrap post">
+    <header class="post-header">
+      <hgroup>
+        <h1>Adventures in Makefiles</h1>
+        <p class="date">Jun 18, 2009</p>
+        
+        <p class="intro"></p>
+      </hgroup>
+    </header>
+
+    <p>Writing Makefiles is painful.  Especially in multiple platforms.  Check out the source code to any C or C++ based application to see what I mean.  You&#39;ll quickly lose your sanity wrapping your brain around the syntax, scope and depth of these files.  Thankfully there are tools out there to make this job much easier, but which one?  I chose Premake.</p>
+
+<h3>Looking Around</h3>
+
+<p>Initially I gave CMake and Scons a good run for the money.  You&#39;ll see my struggle with this issue in Listbotto.  Going back and forth, editing and referencing documentation.  After nearly two full days I finally got a working compile, but at what cost?  Nearly two full days I could have been writing code!  My search for a proper tool finally landed me at the doorstep of <a href="http://industriousone.com/premake">Premake</a>. </p>
+
+<p>Premake is written in C and LUA by <a href="http://sourceforge.net/project/memberlist.php?group_id=71616">3 people</a>. LUA is an embeddable scripting language that has been around for years.  It&#39;s also been used in projects like <a href="http://www.garrysmod.com/">Garry&#39;s Mod</a> and <a href="http://www.farcrygame.com/">FarCry</a>.  There is beauty in both its simplicity and power as a language because you can extend the features.  You&#39;ll also find lots of support, books, documentation, and help from various communities that use the language, which is a plus.</p>
+
+<h3>Switching To Premake</h3>
+
+<p>After making the decision on Premake, switching was amazingly easy.  This was partly because the site has some recipes to get you started.  After adding all the directories I finally got a compile to happen in 10 minutes.  I think the neighbors might have heard my cries of joy.</p>
+
+<p>Soon after the switch I had other libraries added in, compiling, working.  I was personally relieved to not only put the whole build tools issue behind me, but to finally look at my code again.  I honestly compare this to how Ruby on Rails takes a lot of the pain away with web application development.  Much of the heavy lifting is done, just write code! </p>
+
+<p>It wasn&#39;t all sparkles and fun though because there are some drawbacks to me choosing this system, but I can live with them for the time being.</p>
+
+<h3>It Wasn&#39;t All Perfect</h3>
+
+<p>Premake (as of 4.0) does not have a way to generate projects for XCode, though it is planned for 4.1 and 4.2.  If you compare it to tools like CMake, you honestly won&#39;t get the control you&#39;re seeking, but you can add it if needed.  I also found a gotcha with the syntax, but it was quickly figured out and I&#39;ll be submitting some patches soon.</p>
+
+<h3>Final Thoughts</h3>
+
+<p>This post is not meant to start a flame war about which build tool is better.  I firmly believe each serves a great purpose based on what you need.  It took many years for the KDevelop project to switch from Make to CMake.  They even tried SCons, but found CMake to be what the doctor ordered.  Some people I know swear by SCons, while others say CMake is amazing. It&#39;s all very simple, pick the tool for the job you need and one you&#39;ll love to use.  </p>
+
+<p>Premake was a joy to work with in comparison to the others I tried, which is why it stuck.  Your mileage may vary of course.  Now I need to get back to coding.</p>
+
+
+    <a class="share" href="https://twitter.com/intent/tweet?text=&quot;Adventures in Makefiles&quot;%20/2009/06/18/adventures-in-makefiles.html%20via%20&#64;" data-dnt="true">Share</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </article>
+
+</section>
+</div>
+
+<div class="push"></div>
+  <footer>
+    <aside class="wrap">
+      <ol class="prev-posts">
+        <p class="list-title">Recent Posts</p>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/09/02/the-future-of-chef-rvm.html" title="The future of chef-rvm">The future of chef-rvm </a></span>
+              <span class="date">Sep 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/05/02/burnout-my-struggle-with-imposter-syndrome.html" title="Burnout: My struggle with Imposter Syndrome">Burnout: My struggle with I... </a></span>
+              <span class="date">May 02, 2014</span>
+            </li>
+         <!-- for1 -->
+            <li>
+              <span class="recent-title"><a href="/2014/02/21/some-well-kept-chicago-developer-secrets.html" title="Some well-kept Chicago Developer Secrets">Some well-kept Chicago Deve... </a></span>
+              <span class="date">Feb 21, 2014</span>
+            </li>
+        
+      </ol>
+
+      <div class="social">
+        <div class="author-card">
+          <img src="http://www.gravatar.com/avatar/700eacfd79780dfbd6453c971cadafb8?s=100" alt="Aaron Kalin">
+          <span>Aaron Kalin</span>
+        </div>
+        <ul>
+          <li><a class="mail" href="mailto:akalin@martinisoftware.com"><span class="foot-link"><i class="fa fa-envelope"></i>Contact Me</span></a></li>
+          <li><a class="twitter" href="https://twitter.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-twitter"></i>@martinisoft</span></a></li>
+          <li><a class="github" href="https://github.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-github"></i>Github</span></a></li>
+          <li><a class="dribbble" href="http://dribbble.com/martinisoft" target="_blank"><span class="foot-link"><i class="fa fa-dribbble"></i>Dribbble</span></a></li>
+        </ul>
+    </div>
+    </aside>
+    <small>&copy; 2009-2016 Aaron Kalin - All Right Reserved. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</small>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/assets/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script type="text/javascript" src="/assets/vendor/retina-1.1.0.min.js"></script>
+  <script type="text/javascript" src="/assets/application.js"></script>
+
+  <script type="text/javascript">
+    var clicky_site_ids = clicky_site_ids || [];
+    clicky_site_ids.push(66418158);
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = '//static.getclicky.com/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    })();
+  </script>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66418158ns.gif" /></p></noscript>
+
+  </body>
+</html>
+
